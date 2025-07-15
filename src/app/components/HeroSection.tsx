@@ -3,16 +3,6 @@ import { motion } from 'framer-motion'
 
 const HeroSection = () => (
   <section className="relative flex flex-col items-center justify-center min-h-screen px-4">
-    {/* Background image */}
-    <div className="absolute inset-0 w-full h-full">
-      <img
-        src="/hero.jpg"
-        alt="Aro Cafe Hero"
-        className="w-full h-full object-cover object-center"
-      />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-    </div>
     {/* Content */}
     <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
       <motion.h1
