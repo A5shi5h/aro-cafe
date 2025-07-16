@@ -1,25 +1,101 @@
-import React from 'react'
+"use client";
 
-const menuItems = [
-  { name: 'Classic Matcha Latte', price: '₹180', desc: 'Smooth Japanese matcha with steamed milk.' },
-  { name: 'Matcha Cheesecake', price: '₹220', desc: 'Creamy cheesecake with a matcha twist.' },
-  { name: 'Iced Matcha Lemonade', price: '₹160', desc: 'Refreshing lemonade with a matcha kick.' },
-  { name: 'Matcha Tiramisu', price: '₹250', desc: 'Classic tiramisu infused with matcha.' },
-]
+import { useEffect, useRef, useState } from "react";
+import styles from "./page.module.scss";
+import Image from "next/image";
+import Lenis from "@studio-freight/lenis";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 
-const MenuSection = () => (
-  <section id="menu" className="py-20 bg-blue-50 text-primary flex flex-col items-center px-2 sm:px-0">
-    <h2 className="text-4xl font-bold mb-8">Our Menu</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-4xl w-full">
-      {menuItems.map((item) => (
-        <div key={item.name} className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-start w-full">
-          <h3 className="text-2xl font-semibold mb-2">{item.name}</h3>
-          <p className="text-blue-800 mb-2">{item.price}</p>
-          <p className="text-blue-600">{item.desc}</p>
+const images = [
+  "/images/menu1.jpg",
+  "/images/menu2.jpg",
+  "/images/menu3.jpg",
+  "/images/menu4.jpg",
+  "/images/menu5.jpg",
+  "/images/menu6.jpg",
+  "/images/menu7.jpg",
+  "/images/menu8.jpg",
+  "/images/menu9.jpg",
+  "/images/menu10.jpg",
+  "/images/menu11.jpg",
+  "/images/menu1.jpg",
+  "/images/menu2.jpg",
+  "/images/menu3.jpg",
+  "/images/menu4.jpg",
+  "/images/menu5.jpg",
+  "/images/menu6.jpg",
+  "/images/menu7.jpg",
+  "/images/menu8.jpg",
+  "/images/menu9.jpg",
+  "/images/menu10.jpg",
+ ];
+
+export default function MenuSection() {
+  const gallery = useRef(null);
+  const [dimension, setDimension] = useState({ width: 0, height: 0 });
+
+  const { scrollYProgress } = useScroll({
+    target: gallery,
+    offset: ["start end", "end start"],
+  });
+
+  const { height } = dimension;
+  const y = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
+
+  useEffect(() => {
+    const lenis = new Lenis();
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+
+    const resize = () => {
+      setDimension({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener("resize", resize);
+    resize();
+
+    return () => {
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  return (
+    <main className={styles.main}>
+      <div className={styles.spacer}></div>
+      <div ref={gallery} className={styles.gallery}>
+        <div className={styles.galleryWrapper}>
+          <Column images={[images[0], images[1], images[2]]} y={y} />
+          <Column images={[images[3], images[4], images[5]]} y={y2} />
+          <Column images={[images[6], images[7], images[8]]} y={y3} />
+          <Column images={[images[9], images[10], images[11]]} y={y4} />
         </div>
-      ))}
-    </div>
-  </section>
-)
+      </div>
+      <div className={styles.spacer}></div>
+    </main>
+  );
+}
 
-export default MenuSection 
+type ColumnProps = {
+  images: string[];
+  y: MotionValue<number>;
+};
+
+const Column = ({ images, y }: ColumnProps) => {
+  return (
+    <motion.div className={styles.column} style={{ y }}>
+      {images.map((src, index) => (
+        src ? (
+          <div key={index} className="relative aspect-[3/4] w-full rounded-lg overflow-hidden">
+            <Image src={src} alt={`Menu image ${index + 1}`} fill className="object-cover" />
+          </div>
+        ) : null
+      ))}
+    </motion.div>
+  );
+};
