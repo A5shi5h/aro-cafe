@@ -8,11 +8,11 @@ const menuItems = [
 ]
 
 const MenuSection = () => (
-  <section id="menu" className="py-20 bg-blue-50 text-primary flex flex-col items-center">
+  <section id="menu" className="py-20 bg-blue-50 text-primary flex flex-col items-center px-2 sm:px-0">
     <h2 className="text-4xl font-bold mb-8">Our Menu</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-4xl w-full">
       {menuItems.map((item) => (
-        <div key={item.name} className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-start">
+        <div key={item.name} className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-start w-full">
           <h3 className="text-2xl font-semibold mb-2">{item.name}</h3>
           <p className="text-blue-800 mb-2">{item.price}</p>
           <p className="text-blue-600">{item.desc}</p>

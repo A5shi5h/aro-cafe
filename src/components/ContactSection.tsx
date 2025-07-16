@@ -27,7 +27,7 @@ export default function ContactSection() {
         onChange={handleChange}
         onSubmit={onSubmit}
       />
-      <h2 className="mt-10 sm:mb-20 text-xl text-center sm:text-3xl dark:text-white text-black underline">
+      <h2 className="mt-10 sm:mb-20 text-xl text-center sm:text-2xl dark:text-white text-black underline">
         Your Queries are valuable
       </h2>
     </div>

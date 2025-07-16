@@ -5,17 +5,24 @@ import HeroSection from '../components/HeroSection'
 import AboutSection from '../components/AboutSection'
 import MenuSection from '../components/MenuSection'
 import GallerySection from '../components/GallerySection'
-import ContactSection from '../components/ContactSection'
+import HeroArea from '../components/HeroArea'
+import FooterReveal from '../components/FooterReveal'
+import ContactSection from '@/components/ContactSection'
+import LenisProvider from '../components/LenisProvider';
 
 const Page = () => {
   return (
-    <>
-      <HeroSection />
-      <AboutSection />
-      <MenuSection />
-      <GallerySection />
-      <ContactSection />
-    </>
+    <LenisProvider>
+      <div className="relative">
+        <HeroSection />
+        <AboutSection />
+        <HeroArea />
+        <MenuSection />
+        <GallerySection />
+        <ContactSection />
+        <FooterReveal />
+      </div>
+    </LenisProvider>
   )
 }
 
