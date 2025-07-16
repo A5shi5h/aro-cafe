@@ -1,17 +1,35 @@
-import React from 'react'
+"use client";
 
-const ContactSection = () => (
-  <section id="contact" className="py-20 bg-blue-50 text-primary flex flex-col items-center">
-    <h2 className="text-4xl font-bold mb-4">Contact Us</h2>
-    <p className="mb-2">MG Marg, Gangtok, Sikkim</p>
-    <p className="mb-6">Phone: +91 98765 43210</p>
-    <form className="bg-white rounded-xl shadow-lg p-6 flex flex-col gap-4 w-full max-w-md">
-      <input type="text" placeholder="Your Name" className="border border-blue-200 rounded px-4 py-2" />
-      <input type="email" placeholder="Your Email" className="border border-blue-200 rounded px-4 py-2" />
-      <textarea placeholder="Your Message" className="border border-blue-200 rounded px-4 py-2" rows={4} />
-      <button type="submit" className="bg-primary text-white rounded px-4 py-2 font-semibold hover:bg-primary-dark transition-colors">Send Message</button>
-    </form>
-  </section>
-)
+import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
 
-export default ContactSection 
+export default function ContactSection() {
+  const placeholders = [
+    "What's the bestseller?",
+    "What does Aro mean?",
+    "What is Matcha?",
+    "Where is the Location?",
+  ];
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+  };
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
+  return (
+    <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
+      <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
+        Ask Us Anything....
+      </h2>
+      <PlaceholdersAndVanishInput
+        placeholders={placeholders}
+        onChange={handleChange}
+        onSubmit={onSubmit}
+      />
+      <h2 className="mt-10 sm:mb-20 text-xl text-center sm:text-3xl dark:text-white text-black underline">
+        Your Queries are valuable
+      </h2>
+    </div>
+  );
+}
