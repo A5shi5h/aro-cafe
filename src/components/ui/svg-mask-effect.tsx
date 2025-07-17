@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 export const MaskContainer = ({
   children,
   revealText,
-  size = 10,
-  revealSize = 600,
+  size = 1,
+  revealSize = 400,
   className,
 }: {
   children?: string | React.ReactNode;
