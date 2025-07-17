@@ -66,7 +66,7 @@ export default function MenuSection() {
   }, []);
 
   return (
-    <main id="MenuSection" className={styles.main}>
+    <main id="MenuSection" className={styles.main + ' relative z-10 min-h-screen w-full bg-black text-white'}>
       <div className={styles.spacer}></div>
       <div ref={gallery} className={styles.gallery}>
         <div className={styles.galleryWrapper}>

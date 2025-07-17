@@ -3,10 +3,10 @@ import { MaskContainer } from "./ui/svg-mask-effect";
 
 export default function AboutSection() {
   return (
-    <div className="flex min-h-[20rem] sm:min-h-[24rem] h-auto w-full items-center justify-center overflow-hidden px-2 sm:px-0">
+    <div className="flex min-h-[20rem] sm:min-h-[24rem] h-auto w-full items-center justify-center overflow-hidden bg-white dark:bg-slate-900">
       <MaskContainer
         revealText={
-          <p className="mx-auto max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-7xl text-center text-lg sm:text-2xl md:text-4xl font-semibold text-slate-800 dark:text-white leading-7 sm:leading-[3rem]">
+          <p className="text-center text-lg sm:text-2xl md:text-4xl font-semibold text-slate-800 dark:text-white leading-7 sm:leading-[3rem]">
             <span className="bg-gradient-to-r from-blue-400 to-blue-700 bg-clip-text text-transparent text-3xl sm:text-6xl font-extrabold leading-[3rem] sm:leading-[6rem] md:leading-[10rem]">Welcome to Aro Cafe</span><br/>
             The first-ever Matcha cafe in Sikkim. Nestled in the heart of MG Marg, Gangtok, Aro Cafe brings a refreshing twist to the café culture of Sikkim with its unique offering of authentic Japanese matcha-based drinks and desserts. Inspired by the calming essence of Japanese tea rituals and the serene beauty of the Himalayas, we’ve created a space where tradition meets taste.
           </p>

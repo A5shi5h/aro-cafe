@@ -18,18 +18,20 @@ export default function ContactSection() {
     console.log("submitted");
   };
   return (
-    <div className="h-[30rem] sm:h-[30rem] flex flex-col justify-center items-center px-4">
-      <h2 className="mb-10 sm:mb-20 text-3xl text-center sm:text-5xl dark:text-white text-black">
-        Ask Us Anything....
-      </h2>
-      <PlaceholdersAndVanishInput
-        placeholders={placeholders}
-        onChange={handleChange}
-        onSubmit={onSubmit}
-      />
-      <h2 className="mt-10 sm:mb-20 text-xl text-center sm:text-2xl dark:text-white text-black underline">
-        Your Queries are valuable
-      </h2>
-    </div>
+    <section className="relative z-10 bg-white dark:bg-slate-900">
+      <div className="flex flex-col justify-center items-center px-4">
+        <h2 className="mb-10 sm:mb-20 text-3xl text-center sm:text-5xl dark:text-white text-black">
+          Ask Us Anything....
+        </h2>
+        <PlaceholdersAndVanishInput
+          placeholders={placeholders}
+          onChange={handleChange}
+          onSubmit={onSubmit}
+        />
+        <h2 className="mt-10 sm:mb-20 text-xl text-center sm:text-2xl dark:text-white text-black underline">
+          Your Queries are valuable
+        </h2>
+      </div>
+    </section>
   );
 }

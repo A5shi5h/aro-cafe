@@ -53,26 +53,28 @@ export default function GallerySection() {
   ];
   return (
     <>
-      <h1 className="text-center text-4xl sm:text-5xl font-bold pb-18 text-black">Our Gallery</h1>
-      <DraggableCardContainer className="relative flex min-h-screen w-full items-center justify-center overflow-clip">
-        <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-400 md:text-4xl dark:text-neutral-800">
-          Our Gallery is full of Memories
-        </p>
-        {items.map((item , index) => (
-          <DraggableCardBody key={item.title + index} className={item.className}>
-            <Image
-              src={item.image}
-              height={100}
-              width={100}
-              alt={item.title}
-              className="pointer-events-none relative z-10 h-80 w-80 object-cover"
-            />
-            <h3 className="mt-4 text-center text-2xl font-bold text-neutral-700 dark:text-neutral-300">
-              {item.title}
-            </h3>
-          </DraggableCardBody>
-        ))}
-      </DraggableCardContainer>
+      <section className="relative z-10 min-h-screen w-full bg-white dark:bg-slate-900">
+      <h1 className="text-center text-4xl sm:text-5xl font-bold pb-18 text-black pt-10">Our Gallery</h1>
+        <DraggableCardContainer className="relative flex min-h-screen w-full items-center justify-center overflow-clip">
+          <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-400 md:text-4xl dark:text-neutral-800">
+            Our Gallery is full of Memories
+          </p>
+          {items.map((item , index) => (
+            <DraggableCardBody key={item.title + index} className={item.className}>
+              <Image
+                src={item.image}
+                height={100}
+                width={100}
+                alt={item.title}
+                className="pointer-events-none relative z-10 h-80 w-80 object-cover"
+              />
+              <h3 className="mt-4 text-center text-2xl font-bold text-neutral-700 dark:text-neutral-300">
+                {item.title}
+              </h3>
+            </DraggableCardBody>
+          ))}
+        </DraggableCardContainer>
+      </section>
     </>
   );
 }
