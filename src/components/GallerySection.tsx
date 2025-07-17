@@ -53,7 +53,7 @@ export default function GallerySection() {
   ];
   return (
     <>
-      <section className="relative z-10 min-h-screen w-full bg-white dark:bg-slate-900">
+      <section className="relative z-10 w-full bg-white dark:bg-slate-900">
       <h1 className="text-center text-4xl sm:text-5xl font-bold pb-18 text-black pt-10">Our Gallery</h1>
         <DraggableCardContainer className="relative flex min-h-screen w-full items-center justify-center overflow-clip">
           <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-400 md:text-4xl dark:text-neutral-800">

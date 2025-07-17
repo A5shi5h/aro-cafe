@@ -19,7 +19,7 @@ export default function ContactSection() {
   };
   return (
     <section className="relative z-10 bg-white dark:bg-slate-900">
-      <div className="flex flex-col justify-center items-center px-4">
+      <div className="flex flex-col justify-center items-center px-4 py-18 sm:py-10">
         <h2 className="mb-10 sm:mb-20 text-3xl text-center sm:text-5xl dark:text-white text-black">
           Ask Us Anything....
         </h2>
