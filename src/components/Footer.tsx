@@ -18,7 +18,7 @@ export default function Footer() {
       initial={{ y: 60 }}
       animate={inView ? { y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-black text-white px-6 py-20"
+      className="sticky bottom-0 bg-black text-white px-6 py-20 border-2 border-red-600"
     >
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
         <p className="text-lg font-semibold text-center">

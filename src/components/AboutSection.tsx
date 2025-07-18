@@ -38,7 +38,7 @@ export default function AboutSection() {
   return (
     <div
       ref={sectionRef}
-      className="relative flex min-h-[20rem] sm:min-h-[24rem] md:min-h-screen h-auto w-full items-center justify-center overflow-hidden px-2 sm:px-0 bg-white dark:bg-slate-900"
+      className="relative flex min-h-[20rem] sm:min-h-[24rem] md:min-h-screen h-auto w-full items-center justify-center overflow-hidden px-2 sm:px-0 bg-white dark:bg-slate-900 z-10"
       style={{ fontFamily: 'Arial-BoldMT, Arial, sans-serif' }}
     >
       {/* Fading background image */}

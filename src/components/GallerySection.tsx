@@ -1,13 +1,42 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import {
   DraggableCardBody,
   DraggableCardContainer,
 } from "@/components/ui/draggable-card";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function GallerySection() {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    if (!sectionRef.current || !headingRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headingRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 50%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
   const items = [
     {
       title: "The Team",
@@ -53,8 +82,14 @@ export default function GallerySection() {
   ];
   return (
     <>
-      <section className="relative z-10 w-full bg-white dark:bg-slate-900">
-      <h1 className="text-center text-4xl sm:text-5xl font-bold pb-18 text-black pt-10" style={{ fontFamily: 'Arial-BoldMT, Arial, sans-serif' }}>Our Gallery</h1>
+      <section ref={sectionRef} className="relative z-10 w-full bg-white dark:bg-slate-900 border-none shadow-none">
+      <h1
+        ref={headingRef}
+        className="text-center text-4xl sm:text-5xl font-bold pb-18 text-black pt-10 opacity-0"
+        style={{ fontFamily: 'Arial-BoldMT, Arial, sans-serif' }}
+      >
+        Our Gallery
+      </h1>
         <DraggableCardContainer className="relative flex min-h-screen w-full items-center justify-center overflow-clip">
           <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-400 md:text-4xl dark:text-neutral-800">
             Our Gallery is full of Memories
