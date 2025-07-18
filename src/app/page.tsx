@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import HeroSection from '../components/HeroSection'
 import AboutSection from '../components/AboutSection'
 import MenuSection from '../components/MenuSection'
@@ -12,16 +12,17 @@ import LenisProvider from '../components/LenisProvider';
 import Footer from '@/components/Footer'
 
 const Page = () => {
+  const [footerVisible, setFooterVisible] = useState(false);
   return (
     <LenisProvider>
-        <HeroSection />
+        <HeroSection footerVisible={footerVisible} />
         <AboutSection />
         <HeroArea />
         <MenuSection />
         <GallerySection />
         <ContactSection />
         <VideoSection />
-        <Footer/>
+        <Footer setFooterVisible={setFooterVisible} />
     </LenisProvider>
   )
 }

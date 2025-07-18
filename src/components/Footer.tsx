@@ -1,6 +1,11 @@
+// ✅ Scroll-triggered footer animation using GSAP
+
 "use client";
-import { useInView } from "react-intersection-observer";
+
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -9,16 +14,46 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
-export default function Footer() {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+gsap.registerPlugin(ScrollTrigger);
+
+type FooterProps = {
+  setFooterVisible: (visible: boolean) => void;
+};
+
+const Footer = ({ setFooterVisible }: FooterProps) => {
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const section = document.getElementById("video-section");
+    if (!section || !footerRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        footerRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top center",
+            toggleActions: "play none none reverse",
+            onToggle: (self) => setFooterVisible(self.isActive),
+          },
+        }
+      );
+    }, [footerRef]);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <motion.footer
-      ref={ref}
-      initial={{ y: 60 }}
-      animate={inView ? { y: 0 } : {}}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="sticky bottom-0 bg-black text-white px-6 py-20 border-2 border-red-600"
+      ref={footerRef}
+      className="sticky bottom-0 w-full bg-black text-white px-6 py-20 z-0"
+      style={{ opacity: 0 }}
     >
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
         <p className="text-lg font-semibold text-center">
@@ -44,3 +79,5 @@ export default function Footer() {
     </motion.footer>
   );
 }
+
+export default Footer;

@@ -33,6 +33,7 @@ const VideoSection = () => {
   return (
     <section
       ref={sectionRef}
+      id="video-section"
       className="w-full h-screen relative overflow-hidden bg-black z-10"
     >
       <video

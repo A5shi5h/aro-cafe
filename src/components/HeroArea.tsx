@@ -33,7 +33,7 @@ export default function HeroArea() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative z-10 bg-white dark:bg-slate-900 sm:min-h-screen">
+    <section ref={sectionRef} className="relative z-10 bg-white dark:bg-slate-900min-h-[30rem] sm:min-h-[30rem] md:min-h-screen">
       <HeroHighlight>
         <h1
           ref={headingRef}
