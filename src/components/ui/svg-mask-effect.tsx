@@ -42,7 +42,7 @@ export const MaskContainer = ({
   return (
     <motion.div
       ref={containerRef}
-      className={cn("relative h-screen bg-white dark:bg-slate-900", className)}
+      className={cn("relative min-h-screen bg-transparent dark:bg-slate-900", className)}
     >
       <motion.div
         className="absolute flex h-full w-full items-center justify-center bg-black text-6xl [mask-image:url(/mask.svg)] [mask-repeat:no-repeat] [mask-size:40px] dark:bg-white"

@@ -4,7 +4,7 @@ import { HeroHighlight, Highlight } from "./ui/hero-highlight";
 
 export default function HeroArea() {
   return (
-    <section className="relative z-10 bg-white dark:bg-slate-900">
+    <section className="relative z-10 bg-white dark:bg-slate-900 sm:min-h-screen">
       <HeroHighlight>
         <motion.h1
           initial={{

@@ -36,6 +36,14 @@ const HeroSection = () => (
       >
         Aro Cafe
       </motion.h1>
+      <motion.p
+      className="text-center text-base sm:text-lg md:text-xl mb-8 max-w-xs sm:max-w-xl text-white"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.6, duration: 1 }}
+      >
+        Bar And Vibes
+      </motion.p>
       <motion.h2
         className="text-center text-lg sm:text-3xl md:text-4xl font-medium mb-2 text-white max-w-xs sm:max-w-xl"
         initial={{ opacity: 0, y: 40 }}

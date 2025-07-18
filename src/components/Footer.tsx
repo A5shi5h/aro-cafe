@@ -30,13 +30,13 @@ export default function Footer() {
         </div>
         <div className="flex gap-6 mt-2">
           <a href="https://www.instagram.com/_aro.cafe_/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <FontAwesomeIcon icon={faInstagram} className="text-2xl hover:text-pink-400 transition" />
+            <FontAwesomeIcon icon={faInstagram} className="text-2xl text-pink-400 transition" />
           </a>
           <a href="https://www.facebook.com/reel/1098216575471727/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <FontAwesomeIcon icon={faFacebook} className="text-2xl hover:text-blue-400 transition" />
+            <FontAwesomeIcon icon={faFacebook} className="text-2xl text-blue-400 transition" />
           </a>
           <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <FontAwesomeIcon icon={faWhatsapp} className="text-2xl hover:text-green-400 transition" />
+            <FontAwesomeIcon icon={faWhatsapp} className="text-2xl text-green-400 transition" />
           </a>
         </div>
         <p className="text-xs text-neutral-400 mt-4">&copy; {new Date().getFullYear()} Aro Cafe. All rights reserved.</p>
