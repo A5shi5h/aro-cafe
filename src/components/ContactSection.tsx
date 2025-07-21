@@ -48,11 +48,11 @@ export default function ContactSection() {
     console.log("submitted");
   };
   return (
-    <section ref={sectionRef} className="relative z-10 bg-white dark:bg-slate-900 border-none shadow-none">
+    <section ref={sectionRef} className="relative z-10 bg-white border-none shadow-none">
       <div className="flex flex-col justify-center items-center px-4 py-18 sm:py-10">
         <h2
           ref={headingRef}
-          className="mb-10 sm:mb-20 text-3xl text-center sm:text-5xl dark:text-white text-black opacity-0"
+          className="mb-10 sm:mb-20 text-3xl text-center sm:text-5xl text-black opacity-0"
         >
           Ask Us Anything....
         </h2>
@@ -61,7 +61,7 @@ export default function ContactSection() {
           onChange={handleChange}
           onSubmit={onSubmit}
         />
-        <h2 className="mt-10 sm:mb-20 text-xl text-center sm:text-2xl dark:text-white text-black underline">
+        <h2 className="mt-10 sm:mb-20 text-xl text-center sm:text-2xl text-black underline">
           Your Queries are valuable
         </h2>
       </div>

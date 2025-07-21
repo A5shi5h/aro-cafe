@@ -33,14 +33,14 @@ export default function HeroArea() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative z-10 bg-white dark:bg-slate-900min-h-[30rem] sm:min-h-[30rem] md:min-h-screen">
+    <section ref={sectionRef} className="relative z-10 bg-white min-h-[30rem] sm:min-h-[30rem] md:min-h-screen">
       <HeroHighlight>
         <h1
           ref={headingRef}
-          className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-black dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto opacity-0"
+          className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-black max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto opacity-0"
         >
           A Sip of Japan in the Heart of Sikkim. Whisked to Perfection<br/>
-          <Highlight className="text-black dark:text-white">
+          <Highlight className="text-black">
             Only at Aro Cafe.
           </Highlight>
         </h1>

@@ -107,7 +107,7 @@ export default function GallerySection() {
   ];
   return (
     <>
-      <section className="relative z-10 w-full bg-white dark:bg-slate-900 border-none shadow-none">
+      <section className="relative z-10 w-full bg-white border-none shadow-none">
        <div ref={triggerRef} className="overflow-hidden">
        <h1
           ref={headingRef}
@@ -118,7 +118,7 @@ export default function GallerySection() {
         </h1>
         <div ref={sectionRef} className="h-[100vh] w-[200vw] flex flex-row relative hide-horizontal-scrollbar">
             <DraggableCardContainer className="relative flex min-h-[75vh] xl:min-h-screen w-full items-center justify-center overflow-clip">
-              <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-400 md:text-4xl dark:text-neutral-800">
+              <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-400 md:text-4xl">
                 Our Gallery is full of Memories
               </p>
               {items.map((item , index) => (
@@ -130,7 +130,7 @@ export default function GallerySection() {
                     alt={item.title}
                     className="pointer-events-none relative z-10 h-80 w-80 object-cover"
                   />
-                  <h3 className="mt-4 text-center text-2xl font-bold text-neutral-700 dark:text-neutral-300">
+                  <h3 className="mt-4 text-center text-2xl font-bold text-neutral-700">
                     {item.title}
                   </h3>
                 </DraggableCardBody>
