@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
@@ -9,7 +10,7 @@ export const MaskContainer = ({
   children,
   revealText,
   size = 1,
-  revealSize = 400,
+  revealSize = 300,
   className,
 }: {
   children?: string | React.ReactNode;
@@ -21,6 +22,8 @@ export const MaskContainer = ({
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState<any>({ x: null, y: null });
   const containerRef = useRef<any>(null);
+  const [responsiveRevealSize, setResponsiveRevealSize] = useState(revealSize);
+
   const updateMousePosition = (e: any) => {
     const rect = containerRef.current.getBoundingClientRect();
     setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
@@ -37,7 +40,23 @@ export const MaskContainer = ({
       }
     };
   }, []);
-  const maskSize = isHovered ? revealSize : size;
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setResponsiveRevealSize(200); // for screens smaller than md
+      } else {
+        setResponsiveRevealSize(revealSize); // default
+      }
+    };
+  
+    handleResize(); // run once on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [revealSize]);
+  
+  const maskSize = isHovered ? responsiveRevealSize  : size;
 
   return (
     <motion.div
