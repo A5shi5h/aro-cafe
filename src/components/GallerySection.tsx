@@ -27,7 +27,7 @@ export default function GallerySection() {
       ease : "none",
       duration: 1,
       scrollTrigger: {
-        trigger: sectionRef.current,
+        trigger: triggerRef.current,
         start :"top top",
         end: "2000 top",
         scrub: 0.6,
@@ -107,8 +107,8 @@ export default function GallerySection() {
   ];
   return (
     <>
-      <section className="relative z-10 w-full bg-white border-none shadow-none">
-       <div ref={triggerRef} className="overflow-hidden">
+      <section ref={triggerRef} className="relative z-10 w-full bg-white shadow-none border-none">
+       <div className="overflow-hidden">
        <h1
           ref={headingRef}
           className="text-center text-4xl sm:text-5xl font-bold pb-18 text-black pt-10 opacity-0"
