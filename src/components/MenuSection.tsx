@@ -92,7 +92,7 @@ const Column = ({ images, y }: ColumnProps) => {
       {images.map((src, index) => (
         src ? (
           <div key={index} className="relative aspect-[3/4] w-full rounded-lg overflow-hidden">
-            <Image src={src} alt={`Menu image ${index + 1}`} fill className="object-cover" />
+            <Image src={src} alt={`Menu image ${index + 1}`} fill className="object-cover" loading="lazy" />
           </div>
         ) : null
       ))}
